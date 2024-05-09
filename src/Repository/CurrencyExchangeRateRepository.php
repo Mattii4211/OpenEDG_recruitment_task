@@ -34,7 +34,7 @@ class CurrencyExchangeRateRepository extends ServiceEntityRepository
 
     public function getValueByDate(DateTime $date, string $currency): ?float
     {
-        $data=  $this->createQueryBuilder('c')
+        $data = $this->createQueryBuilder('c')
             ->select('c.value')
             ->where('c.fullDate = :fullDate')
             ->andWhere('c.name = :name')
@@ -43,6 +43,6 @@ class CurrencyExchangeRateRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
 
-        return +$data['value'];
+        return $data ? +$data['value'] : null;
     }
 }
