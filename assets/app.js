@@ -1,4 +1,6 @@
 import './bootstrap.js';
+import './bootstrap';
+
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -6,5 +8,8 @@ import './bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+import './styles/global.scss';
+import './handlers/minMaxHandler.js';
+import './handlers/modalHandlers.js';
+import './handlers/calculateInPlnHandler.js'
+window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
