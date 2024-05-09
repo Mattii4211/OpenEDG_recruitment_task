@@ -81,7 +81,7 @@ class CurrencyExchangeRateController extends AbstractController
         }
 
         $rate = $currencyExchangeRateRepository->getValueByDate(new DateTime($requestData->date), $requestData->currency);
-        $valueInPln = round(+$requestData->value / $rate, 5);
+        $valueInPln = $rate ? round(+$requestData->value / $rate, 5) : 0;
 
         return new JsonResponse(
             $rate ? ['value' => $valueInPln] : ['message' => 'Empty data'],
